@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{733671F2-F9AB-4D6D-8942-25B1B005449F}</ProjectGuid>
+    <ProjectGuid>{0932552E-75BF-4008-AF90-642C0C3D1496}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_7Kyu.Tests</RootNamespace>
-    <AssemblyName>_7Kyu.Tests</AssemblyName>
+    <RootNamespace>_6Kyu.Tests</RootNamespace>
+    <AssemblyName>6Kyu.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -54,20 +54,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AveragesOfNumbersTests.cs" />
-    <Compile Include="IsThisATriangleTests.cs" />
-    <Compile Include="JadenCasingStringsTests.cs" />
-    <Compile Include="TargetDateTests.cs" />
+    <Compile Include="CheckingGroupsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\7Kyu\7Kyu.csproj">
-      <Project>{3b88e618-2ca0-473a-9207-3dbe7f3b5188}</Project>
-      <Name>7Kyu</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\6kyu\6kyu.csproj">
+      <Project>{a4530903-4823-4188-874a-49a2384f1f79}</Project>
+      <Name>6kyu</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

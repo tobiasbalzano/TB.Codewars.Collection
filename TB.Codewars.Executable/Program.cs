@@ -10,7 +10,7 @@ namespace TB.Codewars.Executable
     {
         static void Main(string[] args)
         {
-            DateDays.DateNbDays(110F, 1110F, 1F);
+            Console.ReadLine();
         }
     }
 }
