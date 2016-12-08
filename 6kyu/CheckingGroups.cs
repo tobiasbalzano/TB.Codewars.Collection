@@ -25,13 +25,24 @@ namespace _6kyu
     {
         public static bool Check(string input)
         {
-            char[] openingChars = { '(', '[', '{' };
-            char[] closingChars = { ')', ']', '}' };
+            /// TODO: Gör om, gör rätt.... jisses
+            List<char> openingChars = new List<char> { '(', '[', '{' };
+            List<char> closingChars = new List<char> { ')', ']', '}' };
             List<char> openedOrder = new List<char>();
-            foreach(char c in input)
+            List<char> closedOrder = new List<char>();
+            foreach (char c in input)
             {
                 if (c == openingChars[0] || c == openingChars[1] || c == openingChars[2])
                     openedOrder.Add(c);
+                else if (c == closingChars[0] || c == closingChars[1] || c == closingChars[2])
+                    closedOrder.Add(c);
+            }
+            while (openedOrder.Count > 0)
+            {
+                if (openingChars.IndexOf(openedOrder[openedOrder.Count - 1]) != closingChars.IndexOf(closedOrder[0]))
+                    return false;
+                openedOrder.RemoveAt(openedOrder.Count - 1);
+                closedOrder.RemoveAt(0);
             }
 
             return false;
