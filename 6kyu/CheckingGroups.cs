@@ -25,27 +25,35 @@ namespace _6kyu
     {
         public static bool Check(string input)
         {
-            /// TODO: Gör om, gör rätt.... jisses
+            ///TODO: 
+            ///Rekursiv lista beroende på öppnar eller stänger?
+            ///Regex 
+            ///Eget objekt med koll på om nästa char öppnar eller stänger?
             List<char> openingChars = new List<char> { '(', '[', '{' };
             List<char> closingChars = new List<char> { ')', ']', '}' };
-            List<char> openedOrder = new List<char>();
-            List<char> closedOrder = new List<char>();
+            List<char> inputStringToCharList = new List<char>();
+            List<GroupingChar> CharOrder = new List<GroupingChar>();
             foreach (char c in input)
             {
-                if (c == openingChars[0] || c == openingChars[1] || c == openingChars[2])
-                    openedOrder.Add(c);
-                else if (c == closingChars[0] || c == closingChars[1] || c == closingChars[2])
-                    closedOrder.Add(c);
+                if (openingChars.Contains(c) || closingChars.Contains(c))
+                    inputStringToCharList.Add(c);
             }
-            while (openedOrder.Count > 0)
+            for (int i = 0; i < inputStringToCharList.Count; i++)
             {
-                if (openingChars.IndexOf(openedOrder[openedOrder.Count - 1]) != closingChars.IndexOf(closedOrder[0]))
-                    return false;
-                openedOrder.RemoveAt(openedOrder.Count - 1);
-                closedOrder.RemoveAt(0);
-            }
+                GroupingChar gC = new GroupingChar
+                {
+                    Char = inputStringToCharList[i],
+                    ChildChar = openingChars.Contains(inputStringToCharList[i + 1]) ? new List<GroupingChar>() : null
+                };
+        }
 
             return false;
         }
+
+    public class GroupingChar
+    {
+        public char Char { get; set; }
+        public List<GroupingChar> ChildChar { get; set; }
     }
+}
 }
