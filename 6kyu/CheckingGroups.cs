@@ -31,7 +31,7 @@ namespace _6kyu
             ///Eget objekt med koll på om nästa char öppnar eller stänger?
             List<char> openingChars = new List<char> { '(', '[', '{' };
             List<char> closingChars = new List<char> { ')', ']', '}' };
-            List<char> inputStringToCharList = new List<char>();
+            var openingDictionary = new Dictionary<int, string>();
             List<GroupingChar> CharOrder = new List<GroupingChar>();
             foreach (char c in input)
             {
@@ -45,15 +45,15 @@ namespace _6kyu
                     Char = inputStringToCharList[i],
                     ChildChar = openingChars.Contains(inputStringToCharList[i + 1]) ? new List<GroupingChar>() : null
                 };
-        }
+            }
 
             return false;
         }
 
-    public class GroupingChar
-    {
-        public char Char { get; set; }
-        public List<GroupingChar> ChildChar { get; set; }
+        public class GroupingChar
+        {
+            public char Char { get; set; }
+            public List<GroupingChar> ChildChar { get; set; }
+        }
     }
-}
 }
